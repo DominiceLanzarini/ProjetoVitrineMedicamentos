@@ -11,6 +11,6 @@ export const AppDataSource = new DataSource({
     database: "projeto_vitrine_medicamentos",
     synchronize: true,
     logging: true,
-    entities: [],
+    entities: ["src/entities/*.ts"],
     migrations: ["src/database/migrations/*.ts"]
 })
