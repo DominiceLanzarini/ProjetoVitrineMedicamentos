@@ -8,9 +8,11 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
 
     if (token) {
         jwt.verify(token.replace('Bearer ', ''), secretKey, (err, decoded) => {
-            if (err) {
+            if (err || !decoded) {
                 res.status(401).json(err).end()
             } else {
+                // @ts-ignore
+                req.params.userId = decoded.data.id
                 next();
             }
         })

@@ -70,6 +70,7 @@ userRoutes.post("/login", async (req: Request, res: Response) => {
   if (senhaCriptografada === user.password) {
     const payload = {
       name: user.name,
+      id: user.id
     };
 
     // Gera o token
