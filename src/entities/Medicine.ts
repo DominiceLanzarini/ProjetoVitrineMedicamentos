@@ -24,7 +24,7 @@ export class Medicine {
   @Column()
   userId: number;
 
-  //@OneToOne(() => User)
-  //@JoinColumn()
-  //user: User;
+  @OneToOne(() => User)
+  @JoinColumn()
+  user: User;
 }
