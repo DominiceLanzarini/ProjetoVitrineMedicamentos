@@ -5,7 +5,7 @@ import cors from "cors";
 import { AppDataSource } from "./database/data-source";
 
 import userRoutes from "./routes/user.routes";
-//import medicineRoutes from "./routes/medicine.routes";
+import medicineRoutes from "./routes/medicine.routes";
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/usuarios", userRoutes);
-//app.use("/medicamentos", medicineRoutes);
+app.use("/medicamentos", medicineRoutes);
 
 
 AppDataSource.initialize()
