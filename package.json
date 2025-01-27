@@ -27,6 +27,7 @@
         "migrations:run": "npx typeorm-ts-node-commonjs -d ./src/database/data-source.ts migration:run",
         "build": "tsc",
         "dev:server": "ts-node-dev src/server.ts",
-        "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+        "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+        "migrations:create": "npm run typeorm migration:create -n"
     }
 }
