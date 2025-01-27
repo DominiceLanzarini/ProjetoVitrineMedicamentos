@@ -56,9 +56,11 @@ medicineRouter.get("/", authMiddleware, async (req: Request, res: Response) => {
     const result = await medicineRepository.find({
       where: {
         userId: userId,
+        name: req.query.name?.toString(),
       },
       skip: skip,
       take: limit,
+      relations: ["user"],
     });
 
     if (!result) {
@@ -84,8 +86,12 @@ medicineRouter.get(
       const skip = page > 1 ? (page - 1) * limit : 0;
 
       const result = await medicineRepository.find({
+        where: {
+          name: req.query.name?.toString(),
+        },
         skip: skip, // 20 - 30
         take: limit,
+        relations: ["user"],
       });
 
       if (!result) {
@@ -111,6 +117,7 @@ medicineRouter.get(
         where: {
           id: Number(req.params.id),
         },
+        relations: ["user"],
       });
 
       if (!result) {
